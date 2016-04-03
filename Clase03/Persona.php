@@ -39,7 +39,7 @@ abstract class persona
 
 	function toString()
 	{
-		$string = $this->_apellido."-".$this->_nombre."-". $this->_dni."-".$this->_sexo;
+		$string = $this->_apellido."-"$this->_nombre."-". $this->_dni."-".$this->_sexo;
 		return $string;
 	}
 

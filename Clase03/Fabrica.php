@@ -18,13 +18,23 @@ class Fabrica
 		$this->eliminarEmpleadosRepetidos();
 	}
 
-	public function calcularSueldo()
+	public function calcularSueldos()
 	{
 		$total=0;
 
 		foreach($this->_empleados as $valor)
 		{
 			$total+=$valor->getSueldo();
+		}
+		return $total;
+	}
+
+	public function eliminarEmpleado($empleado)
+	{
+		foreach($this->_empleados as $clave => $value)
+		{
+			if($value == $empleado)
+				unset($this->_empleados[$clave]);
 		}
 	}
 
@@ -39,7 +49,7 @@ class Fabrica
 
 		foreach($this->_empleados as $valor)
 		{
-			$stringtotal .=$valor->toString();
+			$stringtotal .= $valor->toString(); 
 
 		}
 

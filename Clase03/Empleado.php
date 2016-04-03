@@ -35,6 +35,11 @@ class Empleado extends Persona
 			return "El empleado habla español";
 	}
 
+	public function __toString()
+	{
+		return (string)$this->_legajo;
+	}
+
 
 }
 
