@@ -1,0 +1,1 @@
+<?phpclass Archivo{	public static function Subir()	{		//IMPLEMENTAR...	}	public static function Borrar($path)	{		return unlink($path);	}	public static function Mover($pathOrigen, $pathDestino)	{		return copy($pathOrigen, $pathDestino);	}}?>

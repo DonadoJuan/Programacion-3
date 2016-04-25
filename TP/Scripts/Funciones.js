@@ -30,6 +30,7 @@ function enviarDatos(){
 	var arrayIdsErrores = [];
 
 	$.each($('input'), function(id,value) {
+		alert(this.value);
 		if(!ValidarCadena($(this).val()){
 			hayError = true;
 			arrayIdsErrores.push(this.id);
