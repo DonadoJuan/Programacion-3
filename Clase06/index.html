@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Ejemplos AJAX - JQUERY - JSON</title>
+	  
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+		<script src="js/ajaxJavaScript.js"></script>
+		<script src="js/ajaxJquery.js"></script>
+		<script src="js/JSONjavascript.js"></script>
+		<script src="js/JSONenviarRecibir.js"></script>
+        <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+	  <div class="container">
+			<div class="page-header">
+                <h1>AJAX - JQUERY - JSON</h1>      
+				<div class="CajaInicio animated bounceInRight">
+					<h1>Ejemplos AJAX - Jquery</h1>
+						<a href="#" class="list-group-item list-group-item list-group-item-info" >
+						  <h4 class="list-group-item-heading">Objeto XMLHttpRequest</h4>
+						  <p class="list-group-item-text" onclick="testAjax()">Primer AJAX</p>
+						  <p class="list-group-item-text" onclick="testAjaxGET()">Pasar par&aacute;metros por GET</p>
+						  <p class="list-group-item-text" onclick="testAjaxPOST()">Pasar par&aacute;metros por POST</p>
+						  <p class="list-group-item-text" onclick="ActualizarGET()">Actualizar elemento con par&aacute;metros por GET</p>
+						  <p class="list-group-item-text" onclick="ActualizarPOST()">Actualizar elemento con par&aacute;metros por POST</p>
+							<a href="#" class="list-group-item list-group-item list-group-item-info">
+							  <h4 class="list-group-item-heading">AJAX y JQUERY</h4>
+							  <p class="list-group-item-text" onclick="jqueryAjax()">Utilizaci&oacute;n de $.ajax()</p>
+							  <p class="list-group-item-text" onclick="jqueryAjaxConParametros()">$.ajax() con par&aacute;metros</p>
+							</a>
+						  <a href="AJAX/suggestion.php" class="list-group-item list-group-item list-group-item-info" >
+							<h4 class="list-group-item-heading">Ejemplos pr&aacute;ticos con AJAX</h4>
+							<p class="list-group-item-text" >Utilizaci&oacute;n de sugerencias</p>
+						  </a>
+						</a>
+				</div>
+				<div class="CajaInicio animated bounceInRight">
+					<h1>Ejemplos JSON</h1>
+						<a href="#" class="list-group-item list-group-item list-group-item-info">
+						  <h4 class="list-group-item-heading">Json</h4>
+						  <p class="list-group-item-text" onclick="ejemplosJSON()">Json simple, colecciones y funciones</p>
+						</a>						
+						  <a class="list-group-item list-group-item list-group-item-info" href="JSON/jsonObj.php">Crear Json(stdClass) desde PHP</a>
+						  <a class="list-group-item list-group-item list-group-item-info" href="JSON/jsonArray.php">Crear Json(array) desde PHP</a>
+						<a href="#" class="list-group-item list-group-item list-group-item-info">
+						  <h4 class="list-group-item-heading">JSON y AJAX</h4>
+						  <p class="list-group-item-text" onclick="enviarJSON()">Enviar Json por Ajax</p>
+						  <p class="list-group-item-text" onclick="recibirJSON()">Recibir Json desde Ajax</p>
+						</a>
+				</div>
+			</div>
+			<div id="divResultado" class="CajaInicio animated bounceInRight"></div>
+		</div>
+</body>
+</html>

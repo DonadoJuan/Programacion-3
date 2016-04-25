@@ -2,34 +2,48 @@
 <html>
 <head>
 <title>Programacion III TP pt2</title>
-<!--<link rel="stylesheet" type="text/css" href="mystyle.css">-->
+<script src="Scripts/Funciones.js"></script>
+<script src="Scripts/Jquery.js"></script>
 </head>
 <body>
 
-<form action="Administracion.php" enctype="multipart/form-data" method="post">
+<form  action="/">
 Nombre:<br>
-<input type="text" name="nombre"><br>
+<input id="nombre" type="text" name="nombre">
+<span id="errorNombre" style="display: none; color: red; font-size: 25px" > * </span>
+<br>
 
 Apellido:<br>
-<input type="text" name="apellido"><br>
+<input id="apellido" type="text" name="apellido">
+<span id="errorApellido" style="display: none; color: red; font-size: 25px" > * </span>
+<br>
 
 Sexo:<br>
-<input type="radio" name="sexo" value="M" checked> Hombre</input> <br>
+<input id="sexo" type="radio" name="sexo" value="M" checked> Hombre</input> <br>
 <input type="radio" name="sexo" value="F"> Mujer </input> <br>
 
 DNI:<br>
-<input type="text" name="dni"><br>
+<input id="dni" type="text" name="dni">
+<span id="errorDni" style="display: none; color: red; font-size: 25px" > * </span>
+<br>
 
 Legajo:<br>
-<input type="text" name="legajo"><br>
+<input id="legajo" type="text" name="legajo">
+<span id="errorLegajo" style="display: none; color: red; font-size: 25px" > * </span>
+<br>
 
 Sueldo:<br>
-<input type="text" name="sueldo"><br>
+<input id="sueldo" type="text" name="sueldo">
+<span id="errorSueldo" style="display: none; color: red; font-size: 25px" > * </span>
+<br>
 
 Foto carnet:<br>
-<input type="file" name="archivo" ><br>
-<input type="submit" value="Enviar">
+<input id="foto" type="file" name="archivo" >
+<span id="errorFoto" style="display: none; color: red; font-size: 25px" > * </span>
+<br>
 </form>
+
+<input type="button" value="Enviar" onclick="enviarDatos()"></input>
 
 
 </body>
