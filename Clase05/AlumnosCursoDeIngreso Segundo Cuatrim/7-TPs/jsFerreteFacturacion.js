@@ -18,21 +18,18 @@ function Sumar ()
 	var precio2 = document.getElementById("PrecioDos");
 	var precio3 = document.getElementById("PrecioTres");
 
-	if(validarElemento(parseInt(precio1.value)))
-		if(validarElemento(parseInt(precio2.value)))
-			if(validarElemento(parseInt(precio3.value)))
-			{ 
-				var suma = parseInt(PrecioUno.value)+parseInt(PrecioDos.value)+parseInt(PrecioTres.value);
-				alert(suma);
-			}
+	if(validarElemento(precio1.value)&&validarElemento(precio2.value)&&validarElemento(precio3.value)){
+		var suma = parseInt(precio1.value)+parseInt(precio2.value)+parseInt(precio3.value)
+		alert('La suma es '+suma);
+	}
 	else
-		alert("Error, dato invalido");
+		alert("Error en los datos");
 }
 
 function Promedio () 
 {
 	var prom =(parseInt(PrecioUno.value)+parseInt(PrecioDos.value)+parseInt(PrecioTres.value))/3;
-	alert(prom);	
+	alert('El promedio es '+prom);	
 }
 
 
@@ -41,5 +38,5 @@ function PrecioFinal ()
 	var suma = parseInt(PrecioUno.value)+parseInt(PrecioDos.value)+parseInt(PrecioTres.value);
 	var iva = (21*suma)/100;
 	preciofinal = suma + iva;
-	alert(preciofinal);
+	alert('El precio final es '+preciofinal);
 }

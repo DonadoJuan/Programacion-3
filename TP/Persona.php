@@ -15,31 +15,31 @@ abstract class persona
 		$this->_sexo = $sexo;
 	}
 
-	function getApellido()
+	public function getApellido()
 	{
 		return $this->_apellido;
 	}
 
-	function getDni()
+	public function getDni()
 	{
 		return $this->_dni;
 	}
 
-	function getNombre()
+	public function getNombre()
 	{
 		return $this->_nombre;
 	}
 
-	function getSexo()
+	public function getSexo()
 	{
 		return $this->_sexo;
 	}
 
 	abstract function hablar($idioma);
 
-	function toString()
+	public function toString()
 	{
-		$string = $this->_apellido."-".$this->_nombre."-". $this->_sexo."-".$this->_dni;
+		$string = $this->_nombre."-".$this->_apellido."-". $this->_sexo."-".$this->_dni;
 		return $string;
 	}
 

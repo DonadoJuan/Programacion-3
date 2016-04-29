@@ -1,6 +1,6 @@
 <?php
 
-require "Empleado.php";
+include_once('Empleado.php');
 
 class Fabrica
 {
@@ -10,12 +10,17 @@ class Fabrica
 	public function __construct($razonSocial)
 	{
 		$this->_razonSocial = $razonSocial;
+		$this->obtenerEmpleadosTxt();
 	}
 
 	public function agregarEmpleado($empleado)
 	{
-		array_push($this->_empleados,$empleado);
-		$this->eliminarEmpleadosRepetidos();
+		array_push($this->_empleados,$empleado);	
+		if($this->eliminarEmpleadosRepetidos())
+			return false;
+		else
+			return true;
+
 	}
 
 	public function calcularSueldos()
@@ -33,14 +38,20 @@ class Fabrica
 	{
 		foreach($this->_empleados as $clave => $value)
 		{
-			if($value == $empleado)
+			if($value == $empleado){
 				unset($this->_empleados[$clave]);
+				return true;
+			}
 		}
+		return false;
 	}
 
 	private function eliminarEmpleadosRepetidos()
 	{
-		$this->_empleados = array_unique($this->_empleados);
+		if($this->_empleados != array_unique($this->_empleados))
+			return true;
+		else
+			return false;
 	}
 
 	public function toString()
@@ -58,8 +69,38 @@ class Fabrica
 		return $stringtotal;
 	}
 
+	private function obtenerEmpleadosTxt(){
 
+		$ar = fopen("ListaEmpleados.txt", "r");
+		while(!feof($ar)){
 
+			$archAux = fgets($ar);
+			$empleadoaux = explode("-", $archAux);
+			$empleadoaux[0] = trim($empleadoaux[0]);
+
+			if($empleadoaux[0] != ""){
+
+				$empleado = new Empleado($empleadoaux[0],$empleadoaux[1],$empleadoaux[2],
+				$empleadoaux[3],$empleadoaux[4],$empleadoaux[5],$empleadoaux[6]);
+				$this->agregarEmpleado($empleado);
+			}
+		}
+		fclose($ar);
+	}
+
+	public static function guardar($fabrica){
+
+		$ar = fopen("ListaEmpleados.txt","w");
+		foreach($fabrica->_empleados as $empleado){
+			fwrite($ar,$empleado->toString()."\r\n");
+		}
+		fclose($ar);		
+	}
+
+	public function toArray(){
+
+		return $this->_empleados;
+	}
 
 }
 

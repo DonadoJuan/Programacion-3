@@ -52,6 +52,19 @@ class Empleado extends Persona
 		$this->_pathFoto = $pathfoto;
 	}
 
+	public static function compare(&$obj1, &$obj2)
+    {
+
+    if ($obj1->getDni != $obj2->getDni)
+        return false;
+    if ($obj1->getLegajo != $obj2->getLegajo)
+        return false;
+  
+    return true;
+
+    }
+
+
 
 }
 
