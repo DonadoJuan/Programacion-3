@@ -3,12 +3,13 @@ class AccesoDatos
 {
     private static $_objetoAccesoDatos;
     private $_objetoPDO;
- 
-    private function __construct()
+    
+    //http://www.cristalab.com/tutoriales/crear-e-implementar-el-patron-de-diseno-singleton-en-php-c256l/
+    private function __construct($mibd)
     {
         try {
  
-            $this->_objetoPDO = new PDO('mysql:host=localhost;dbname=cdcol;charset=utf8', 'root', '', array(PDO::ATTR_EMULATE_PREPARES => false,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $this->_objetoPDO = new PDO('mysql:host=localhost;dbname='.$mibd.';charset=utf8', 'root', '', array(PDO::ATTR_EMULATE_PREPARES => false,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
  
             $this->_objetoPDO->exec("SET CHARACTER SET utf8");
  
@@ -25,10 +26,10 @@ class AccesoDatos
         return $this->_objetoPDO->prepare($sql);
     }
  
-    public static function DameUnObjetoAcceso()//singleton
+    public static function DameUnObjetoAcceso($mibd)//singleton
     {
         if (!isset(self::$_objetoAccesoDatos)) {       
-            self::$_objetoAccesoDatos = new AccesoDatos(); 
+            self::$_objetoAccesoDatos = new AccesoDatos($mibd); 
         }
  
         return self::$_objetoAccesoDatos;        

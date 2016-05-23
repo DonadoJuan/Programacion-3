@@ -15,6 +15,8 @@
         <!-- Latest compiled JavaScript -->
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="estilo.css">
+
+        <script type="text/javascript" src="validacion.js" ></script>
 </head>
 <body>
 <?php     
@@ -29,11 +31,11 @@
 		<div class="CajaInicio animated bounceInRight">
 			<h1>LOGIN - PDO </h1>
 
-			<form id="FormIngreso" method="post">
-				<input type="text" name="numero" placeholder="E-mail" value="" />
-				<input type="password" name="nombre" placeholder="Password" value="" />
+			<form id="FormIngreso"  method="post">
+				<input type="text" name="numero" placeholder="E-mail"  id="mail" value="" />
+				<input type="password" name="nombre" placeholder="Password" id="password" value="" />
 
-				<input type="button" class="btn btn-danger" value="LOGIN" onclick="alert('implementar login!!!')" />
+				<input type="button" class="btn btn-danger" value="LOGIN" onclick="validar()" />
 				
 
 			</form>
