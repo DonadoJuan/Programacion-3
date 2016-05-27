@@ -1,4 +1,5 @@
 <?php
+
 require_once("verificar_sesion.php");
 
 $user = $_SESSION["Usuario"];

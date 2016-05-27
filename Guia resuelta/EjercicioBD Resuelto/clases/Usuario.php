@@ -46,7 +46,21 @@ class Usuario {
     }
 
     public static function TraerUnUsuarioPorId($id) {
-	//implementar... 
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+
+        $sql = "SELECT U.id, U.nombre, U.email, U.perfil, U.foto
+                FROM usuarios U
+                WHERE U.id = :id";
+
+        $consulta = $objetoAccesoDato->RetornarConsulta($sql);
+        $consulta->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $consulta->execute();
+
+        $usuarioPorId = $consulta->fetchObject('Usuario');
+
+        return $usuarioPorId;	
+
    }
 
     public static function Agregar($obj) {
@@ -78,7 +92,17 @@ class Usuario {
 
     public static function Modificar($obj) {
 
-//implementar...
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+        $consulta = $objetoAccesoDato->RetornarConsulta("UPDATE usuarios
+        SET nombre = :nombre, email = :email, perfil = :perfil WHERE id = :id");
+        $consulta->bindValue(':id', $obj->id, PDO::PARAM_INT);
+        $consulta->bindValue(':nombre', $obj->nombre, PDO::PARAM_STR);
+        $consulta->bindValue(':email', $obj->email, PDO::PARAM_STR);
+        $consulta->bindValue(':perfil', $obj->perfil, PDO::PARAM_STR);
+
+        $consulta->execute();
+
+        return $objetoAccesoDato->RetornarUltimoIdInsertado();
 
     }
 
@@ -107,6 +131,12 @@ class Usuario {
     }
 
     public static function Borrar($id) {
-//implementar..
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+        $consulta = $objetoAccesoDato->RetornarConsulta("DELETE FROM usuarios WHERE usuarios.id = :id");
+        $consulta->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $consulta->execute();
+
+        return $objetoAccesoDato->RetornarUltimoIdInsertado();
     }
 }

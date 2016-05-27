@@ -18,11 +18,13 @@ if (!isset($usuario)) {//alta
     $foto = $usuario->foto;
     
     if(isset($usuario->accion)){
-        $botonClick = $usuario->accion == "Modificar" ? "ModificarUsuario()" : "EliminarUsuario()";    
+
+        $botonClick = $usuario->accion == "Modificar" ? "ModificarUsuario(".$usuario->id.")" : 
+        "EliminarUsuario(".$usuario->id.")";    
         $botonTitulo = $usuario->accion;
     }
     else {
-        $botonClick = "ModificarUsuario()";    
+        $botonClick = "ModificarUsuario(".$usuario->id.")";    
         $botonTitulo = "Editar Perfil";        
     }   
  }
